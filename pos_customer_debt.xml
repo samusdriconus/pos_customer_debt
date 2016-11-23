@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<template id="assets_backend" name="pos_customer_debt_debt_assets" inherit_id="web.assets_backend">
+      <xpath expr="." position="inside">
+        <script type="text/javascript" src="/pos_customer_debt/static/src/js/pos_customer_debt.js"/>
+      </xpath>
+    </template>
+
+
+    <record id="pos_debt_partner_kanban_view" model="ir.ui.view">
+			<field name="name">adebt.res.partner.kanban</field>
+			<field name="model">res.partner</field>
+			<field name="inherit_id" ref="base.res_partner_kanban_view"/>
+			<field name="arch" type="xml">
+				<field name="mobile" position="after">
+				<field name="debt" attrs="{'invisible':[('supplier','=',True)]}"/>
+			</field>
+			<xpath expr="//div[@class='oe_kanban_details']/ul" position="inside">
+				<a type="action" name="%(action_customer_debt_payment)d"> <li t-if="record.debt.raw_value">Debt: <field name="debt"/></li></a>
+
+			</xpath>
+		</field>
+
+		</record>
+	</data>
+</openerp>

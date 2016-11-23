@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+  <data>
+
+
+  <record id="view_customer_debt_payment" model="ir.ui.view">
+      <field name="name">view.customer.debt.payment</field>
+      <field name="model">pos.customer.debt.payment</field>
+      <field name="arch" type="xml">
+        <form string="Customer Debt Payment">
+          <group>
+            <field name="partner" required="True"/>
+            <separator/>
+            <separator/>
+            <field name="amount"/>
+            <field name="cash_amount"/>
+          </group>
+
+          <footer>
+            <button name="change_customer_debt" string="_Pay" type="object" class="oe_highlight"/>or
+            <button string="_Cancel" class="oe_link" special="cancel" />
+          </footer>
+        </form>
+      </field>
+  </record>
+
+  <record id="action_customer_debt_payment" model="ir.actions.act_window">
+      <field name="name">Customer Debt Payment</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">pos.customer.debt.payment</field>
+      <field name="view_type">form</field>
+      <field name="view_mode">form</field>
+      <field name="view_id" ref="view_customer_debt_payment"/>
+      <field name="target">new</field>
+      <field name="context">{'partner' : context.get('active_id')}</field>
+  </record>
+
+  </data>
+</openerp>
