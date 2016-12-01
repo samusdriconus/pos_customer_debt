@@ -30,4 +30,4 @@ class pos_customer_debt_payment(models.TransientModel):
 
 
 
-wizard_reglement_customer()
+pos_customer_debt_payment()
