@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    OpenERP, Open Source Management Solution
-#    Copyright (C) 2016 Rui Saidi Oussama All Rights Reserved
+#    Copyright (C) 2017 Saidi Oussama All Rights Reserved
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -26,7 +26,7 @@ class res_partner(models.Model):
 
 	@api.model
 	def apply_debt(self, id, debt_value):
-		"""" this method is called from pos javascript widget and used
+		"""" this method is called from pos web widget and used
 			 to assign debt to customer"""
 		res = self.browse(id)
 		res.debt += debt_value
